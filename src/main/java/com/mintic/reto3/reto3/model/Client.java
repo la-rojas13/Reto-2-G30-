@@ -16,6 +16,7 @@ public class Client implements Serializable {
     private Integer idClient;
     private String email;
     private String password;
+    private String name;
     private Integer age;
 
     @OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
@@ -73,6 +74,14 @@ public class Client implements Serializable {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

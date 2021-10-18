@@ -14,9 +14,9 @@ public class Computer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String name;
     private String brand;
     private Integer year;
-    private String name;
     private String description;
 
     @ManyToOne
