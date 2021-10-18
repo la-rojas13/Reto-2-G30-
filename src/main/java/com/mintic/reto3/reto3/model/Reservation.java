@@ -1,8 +1,11 @@
 package com.mintic.reto3.reto3.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "reservation")
@@ -11,15 +14,19 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
-    private String startDate;
-    private String devolutionDate;
+    private Date startDate;
+    private Date devolutionDate;
+    private String status = "created";
+    private String score;
 
     @ManyToOne
-    @JoinColumn(name = "computer")
+    @JoinColumn(name = "id")
+    @JsonIgnoreProperties("reservations")
     private Computer computer;
 
     @ManyToOne
-    @JoinColumn(name = "client")
+    @JoinColumn(name = "idClient")
+    @JsonIgnoreProperties({"reservations", "messages"})
     private Client client;
 
     public Integer getIdReservation() {
@@ -30,20 +37,36 @@ public class Reservation implements Serializable {
         this.idReservation = idReservation;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public String getDevolutionDate() {
+    public Date getDevolutionDate() {
         return devolutionDate;
     }
 
-    public void setDevolutionDate(String devolutionDate) {
+    public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
 
     public Computer getComputer() {
@@ -61,4 +84,8 @@ public class Reservation implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
+
+   
+
+    
 }
