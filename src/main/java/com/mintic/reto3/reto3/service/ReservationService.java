@@ -52,6 +52,9 @@ public class ReservationService {
                 if (reservation.getComputer() != null) {
                     consult.get().setComputer(reservation.getComputer());
                 }
+                if (reservation.getStatus() != null) {
+                    consult.get().setStatus(reservation.getStatus());
+                }
                 return reservationRepository.save(consult.get());
             }
         }

@@ -43,6 +43,9 @@ public class MessageService {
                 if (message.getMessageText() != null) {
                     consult.get().setMessageText(message.getMessageText());
                 }
+                if (message.getClient() != null) {
+                    consult.get().setClient(message.getClient());
+                }
                 return messageRepository.save(consult.get());
             }
         }
