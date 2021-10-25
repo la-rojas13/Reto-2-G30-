@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.mintic.reto3.reto3.model.Category;
 import com.mintic.reto3.reto3.repository.CRUD.CategoryCrud;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,15 +15,19 @@ public class CategoryRepository {
     @Autowired
     private CategoryCrud categoryCrud;
 
-    public List<Category> getAll(){
-        return (List<Category>)categoryCrud.findAll();
+    public List<Category> getAll() {
+        return (List<Category>) categoryCrud.findAll();
     }
 
-    public Optional<Category>getCategory(int id){
+    public Optional<Category> getCategory(int id) {
         return categoryCrud.findById(id);
     }
-    
-    public Category save(Category category){
+
+    public Category save(Category category) {
         return categoryCrud.save(category);
+    }
+
+    public void delete(Category category) {
+        categoryCrud.delete(category);
     }
 }

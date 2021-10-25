@@ -26,4 +26,8 @@ public class AdminUserRepository {
     public AdminUser save(AdminUser adminUser){
         return adminUserCrud.save(adminUser);
     }
+
+    public void delete(AdminUser adminUser) {
+        adminUserCrud.delete(adminUser);
+    }
 }
