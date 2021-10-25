@@ -35,4 +35,38 @@ public class ComputerService {
             }
         }
     }
+
+    public Computer update(Computer computer) {
+        if (computer.getId() != null) {
+            Optional<Computer> consult = computerRepository.getComputer(computer.getId());
+            if (!consult.isEmpty()) {
+                if (computer.getName() != null) {
+                    consult.get().setName(computer.getName());
+                }
+                if (computer.getDescription() != null) {
+                    consult.get().setDescription(computer.getDescription());
+                }
+                if (computer.getBrand() != null) {
+                    consult.get().setBrand(computer.getBrand());
+                }
+                if (computer.getYear() != null) {
+                    consult.get().setYear(computer.getYear());
+                }
+                if (computer.getCategory() != null) {
+                    consult.get().setCategory(computer.getCategory());
+                }
+                return computerRepository.save(consult.get());
+            }
+        }
+        return computer;
+    }
+
+    public boolean deleteComputer(int id){
+        Optional<Computer> consult = computerRepository.getComputer(id);
+            if (!consult.isEmpty()) {
+                computerRepository.delete(consult.get());
+                return true;
+            }
+        return false;
+    }
 }
