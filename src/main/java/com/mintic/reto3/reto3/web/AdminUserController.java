@@ -10,9 +10,11 @@ import com.mintic.reto3.reto3.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,5 +44,17 @@ public class AdminUserController {
     @ResponseStatus(HttpStatus.CREATED)
     public AdminUser save(@RequestBody AdminUser adminUser) {
         return adminUserService.save(adminUser);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public AdminUser update(@RequestBody AdminUser adminUser){
+        return adminUserService.update(adminUser);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteAdminUser(@PathVariable("id") int id){
+        return adminUserService.deleteAdminUser(id);
     }
 }
