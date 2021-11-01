@@ -9,7 +9,7 @@ function traerInformacionStatus() {
     showSpinner()
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/Reservation/report-status",
+        url: "http://129.151.119.110:8080/api/Reservation/report-status",
         dataType: "JSON",
         success: function (response) {
             console.log(response)
@@ -51,7 +51,7 @@ function traerInformacionClient() {
     showSpinner()
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/Reservation/report-clients",
+        url: "http://129.151.119.110:8080/api/Reservation/report-clients",
         dataType: "JSON",
         success: function (response) {
             console.log(response)
@@ -104,7 +104,7 @@ function traerInformacionFecha() {
     showSpinner()
     $.ajax({
         type: "GET",
-        url: `http://localhost:8080/api/Reservation/report-dates/${startDate}/${devolutionDate}`,
+        url: `http://129.151.119.110:8080/api/Reservation/report-dates/${startDate}/${devolutionDate}`,
         dataType: "JSON",
         success: function (response) {
             console.log(response)

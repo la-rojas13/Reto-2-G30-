@@ -7,7 +7,7 @@ function traerInformacion() {
     showSpinner()
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/Computer/all",
+        url: "http://129.151.119.110:8080/api/Computer/all",
         dataType: "JSON",
         success: function (response) {
             console.log(response)
@@ -67,7 +67,7 @@ function agregar() {
     let datosPeticion = JSON.stringify(datos);
 
     $.ajax({
-        url: "http://localhost:8080/api/Computer/save",
+        url: "http://129.151.119.110:8080/api/Computer/save",
         data: datosPeticion,
         type: 'POST',
         contentType: "application/JSON",
@@ -121,7 +121,7 @@ function borrar(numId) {
     let datosPeticion = JSON.stringify(datos);
 
     $.ajax({
-        url: "http://localhost:8080/api/Computer/" + numId,
+        url: "http://129.151.119.110:8080/api/Computer/" + numId,
         data: datosPeticion,
         type: 'DELETE',
         contentType: "application/JSON",
@@ -154,7 +154,7 @@ function editarRegistro(numId) {
     }
 
     $.ajax({
-        url: "http://localhost:8080/api/Computer/" + numId,
+        url: "http://129.151.119.110:8080/api/Computer/" + numId,
         type: 'GET',
         dataType: 'json',
 
@@ -189,7 +189,7 @@ console.log($("#id").val())
     console.log("datos actualizar:" + datosPeticion)
 
     $.ajax({
-        url: "http://localhost:8080/api/Computer/update",
+        url: "http://129.151.119.110:8080/api/Computer/update",
         data: datosPeticion,
         type: 'PUT',
         contentType: "application/JSON",
