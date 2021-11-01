@@ -29,28 +29,52 @@ public class ComputerController {
     @Autowired
     private ComputerService computerService;
 
+    
+    /** 
+     * @return List<Computer>
+     */
     @GetMapping("/all")
     public List<Computer> getComputers() {
         return computerService.getAll();
     }
 
+    
+    /** 
+     * @param id
+     * @return Optional<Computer>
+     */
     @GetMapping("/{id}")
     public Optional<Computer> getComputer(@PathVariable("id") int id) {
         return computerService.getComputer(id);
     }
 
+    
+    /** 
+     * @param computer
+     * @return Computer
+     */
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Computer save(@RequestBody Computer computer) {
         return computerService.save(computer);
     }
 
+    
+    /** 
+     * @param computer
+     * @return Computer
+     */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Computer update(@RequestBody Computer computer){
         return computerService.update(computer);
     }
 
+    
+    /** 
+     * @param id
+     * @return boolean
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteComputer(@PathVariable("id") int id){
